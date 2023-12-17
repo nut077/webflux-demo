@@ -12,18 +12,18 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("math")
+@RequestMapping("/math")
 public class MathController {
 
   private final MathService mathService;
 
-  @GetMapping("/square/{input}")
-  public ResponseDTO findSquare(@PathVariable int input) {
-    return mathService.findSquare(input);
+  @GetMapping("/square/{req}")
+  public ResponseDTO findSquare(@PathVariable int req) {
+    return mathService.findSquare(req);
   }
 
-  @GetMapping("/table/{input}")
-  public List<ResponseDTO>multiplicationTable(@PathVariable int input) {
-    return mathService.multiplicationTable(input);
+  @GetMapping("/table/{req}")
+  public List<ResponseDTO>multiplicationTable(@PathVariable int req) {
+    return mathService.multiplicationTable(req);
   }
 }

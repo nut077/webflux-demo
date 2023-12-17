@@ -12,15 +12,15 @@ import java.util.stream.IntStream;
 @Slf4j
 public class MathService {
 
-  public ResponseDTO findSquare(int input) {
-    return new ResponseDTO(input * input);
+  public ResponseDTO findSquare(int req) {
+    return new ResponseDTO(req * req);
   }
 
-  public List<ResponseDTO> multiplicationTable(int input) {
+  public List<ResponseDTO> multiplicationTable(int req) {
     return IntStream.rangeClosed(1, 10)
       .peek(i -> SleepUtil.sleepSeconds(1))
       .peek(i -> log.info("math-service processing: " + i))
-      .mapToObj(i -> new ResponseDTO(i * input))
+      .mapToObj(i -> new ResponseDTO(i * req))
       .toList();
   }
 }
